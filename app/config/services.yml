@@ -36,6 +36,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_expired, method: onJWTExpired }        
     app.cors_listener:
-        class:      AppBundle\EventListener\CorsListener
+        class: AppBundle\EventListener\CorsListener
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }        

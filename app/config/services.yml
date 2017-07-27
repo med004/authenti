@@ -1,0 +1,41 @@
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine
+    acme_api.event.jwt_created_listener:
+        class: AppBundle\EventListener\JWTCreatedlistener
+        arguments: [ '@request_stack' ]
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+    acme_api.event.jwt_decoded_listener:
+        class: AppBundle\EventListener\JWTDecodedlistener
+        arguments: [ '@request_stack' ]
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_decoded, method: onJWTDecoded }        
+    acme_api.event.jwt_authenticated_listener:
+        class: AppBundle\EventListener\JWTAuthenticatedListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_authenticated, method: onJWTAuthenticated }        
+    acme_api.event.authentication_success_listener:
+        class: AppBundle\EventListener\AuthenticationSuccessListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }        
+    acme_api.event.authentication_failure_listener:
+        class: AppBundle\EventListener\AuthenticationFailureListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_failure, method: onAuthenticationFailureResponse }        
+    acme_api.event.jwt_invalid_listener:
+        class: AppBundle\EventListener\JWTInvalidListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_invalid, method: onJWTInvalid }        
+    acme_api.event.jwt_invalid_listener:
+        class: AppBundle\EventListener\JWTInvalidListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_not_found, method: onJWTNotFound }        
+    acme_api.event.jwt_expired_listener:
+        class: AppBundle\EventListener\JWTExpiredListener
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_expired, method: onJWTExpired }        
+    app.cors_listener:
+        class:      AppBundle\EventListener\CorsListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }        

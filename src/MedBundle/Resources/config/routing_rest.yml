@@ -1,0 +1,4 @@
+api_crud_programmer:
+    resource: MedBundle\Controller\ApiController
+    type:     rest
+      

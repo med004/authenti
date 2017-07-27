@@ -1,0 +1,4 @@
+med_homepage:
+    path:     /
+    defaults: { _controller: MedBundle:Default:index }
+

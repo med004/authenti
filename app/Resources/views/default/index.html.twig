@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %} Acceuil {% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+<style>
+
+a {
+    text-decoration:none;
+    color: #e74c3c;
+        margin-right: 25px;
+
+}
+
+</style>
+
+{% endblock %}
+{% block body %}
+<div class="container" ng-app="myApp">
+    <a href="#/!">Acceuil</a>
+
+<a href="#!login">Login</a>
+<a href="#!register">Register</a> 
+<a href="#!affiche">Affiche</a>
+<br><br>
+
+<div ng-view></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+<script src="angularJwt.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.3.7-3.3.13/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/app.js') }}"></script>
+
+<script>
+
+
+
+</script>
+</div>
+{% endblock %}
+
